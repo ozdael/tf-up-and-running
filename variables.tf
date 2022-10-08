@@ -1,0 +1,57 @@
+variable "number_example" {
+  description = "An example of a number variable in Terraform"
+  type        = number
+  default     = 42
+}
+
+variable "list_example" {
+  description = "An example of a list in Terraform"
+  type        = list
+  default     = ["a", "b", "c"]
+}
+
+variable "list_numeric_example" {
+  description = "An example of a numeric list in Terraform"
+  type        = list(number)
+  default     = [1, 2, 3]
+}
+
+variable "object_example" {
+  description = "An example of a structural type in Terraform"
+  type        = object({
+    name    = string
+    age     = number
+    tags    = list(string)
+    enabled = bool
+  })
+
+  default = {
+    name    = "value1"
+    age     = 42
+    tags    = ["a", "b", "c"]
+    enabled = true
+  }
+}
+
+variable "object_example_with_error" {
+  description = "An example of a structural type in Terraform with an error"
+  type        = object({
+    name    = string
+    age     = number
+    tags    = list(string)
+    enabled = bool
+  })
+
+  default = {
+    name    = "value1"
+    age     = 42
+    tags    = ["a", "b", "c"]
+    enabled = true
+  }
+}
+
+variable "server_port" {
+  description = "The port the server will use for HTTP requests"
+  type        = number
+  default     = 8080
+}
